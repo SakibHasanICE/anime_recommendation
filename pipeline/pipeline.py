@@ -24,7 +24,18 @@ class AnimeRecommendationPipeline:
             raise CustomException ("Error during pipline initialization", e)
         
 
-    def recommend(self, query:str)
+    def recommend(self, query:str) -> str:
+        try;
+            logger.info(f"recieved a query {query}")
+
+            recommendation= self.recommender.get_recommendation(query)
+
+            logger.info("Recommendation generated succesfully")
+
+            return recommendation
+        except Exception as e:
+            logger.error(f"Failed to get recommendation {str(e)}")
+            raise CustomException ("Error during getting recommendation", e)
 
              
       
