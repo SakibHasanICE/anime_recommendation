@@ -25,7 +25,7 @@ class AnimeRecommendationPipeline:
         
 
     def recommend(self, query:str) -> str:
-        try;
+        try:
             logger.info(f"recieved a query {query}")
 
             recommendation= self.recommender.get_recommendation(query)
