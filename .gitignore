@@ -15,3 +15,5 @@ logs/
 logs
 Anime_Recommendation.egg-info/
 Anime_Recommendation.egg-info
+chroma_db/
+chroma_db
