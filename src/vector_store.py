@@ -1,4 +1,4 @@
-from langchain.text_splitter import CharacterTextSplitter
+from langchain_text_splitters import CharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_community.document_loaders.csv_loader import CSVLoader
 
@@ -26,8 +26,7 @@ class VectorStoreBuilder:
         splitter= CharacterTextSplitter(chunk_size=1000,chunk_overlap=32)
         texts= splitter.split_documents(data)
 
-        db= Chroma.from_documents(texts,self.embedding,persist_dir=self.persist_dir)
-        db.persist()
+        db= Chroma.from_documents(texts,self.embedding,persist_directory=self.persist_dir)
     
     def load_vector_store(self):
         return Chroma(persist_directory=self.persist_dir,embedding_function=self.embedding)
